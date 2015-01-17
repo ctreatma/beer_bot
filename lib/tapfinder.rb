@@ -1,3 +1,4 @@
+require 'tapfinder/bar'
 require 'tapfinder/search'
 
 module Tapfinder

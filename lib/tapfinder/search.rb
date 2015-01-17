@@ -3,7 +3,15 @@ require 'restclient'
 module Tapfinder
   class Search
     def find(params)
-      puts "Time to search #{client} for #{search_terms_for(params)}"
+      response = client.post search_terms_for(params)
+      case response.code
+      when 200
+        json_response = JSON.parse(response.body)
+        bars = Tapfinder::Bar.load(json_response['bars'])
+        puts "Bars: #{bars}"
+      else
+        puts "Failed to search #{client} for #{search_terms_for(params)}"
+      end
     end
 
     def client
