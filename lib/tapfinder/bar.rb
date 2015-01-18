@@ -20,7 +20,7 @@ module Tapfinder
         {
           style: beer.css('.beer-meta h5:first-child').text,
           origin: beer.css('.beer-meta h5:nth-child(2)').text,
-          name: beer.css('a[href^=/beer]').text
+          name: beer.css('h4 a[href^="/beer"]').text
         }
       end
     end

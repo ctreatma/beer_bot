@@ -8,7 +8,6 @@ module Tapfinder
       when 200
         json_response = JSON.parse(response.body)
         bars = Tapfinder::Bar.load(json_response['bars'])
-        puts "Bars: #{bars}"
       else
         puts "Failed to search #{client} for #{search_terms_for(params)}"
       end
