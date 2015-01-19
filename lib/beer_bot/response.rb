@@ -39,9 +39,9 @@ module BeerBot
 
     def build_tap_lists
       @bars.inject([]) do |lines, bar|
-        lines << "1. #{bar.name} has #{bar.beers.size} beers on tap"
+        lines << "1. *#{bar.name}* has #{bar.beers.size} beers on tap"
         bar.beers.each do |beer|
-          lines << "    * #{beer[:name]} (#{beer[:style]}, #{beer[:origin]})"
+          lines << "    * *#{beer[:name]}* _(#{beer[:style]}, #{beer[:origin]})_"
         end
         lines
       end
