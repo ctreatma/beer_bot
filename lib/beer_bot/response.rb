@@ -2,6 +2,7 @@ module BeerBot
   class Response
     def initialize(bars, request_params)
       @response_fields = {
+        link_names: 1,
         username: 'BeerBot',
         icon_emoji: ':beers:',
         channel: request_params['channel_id'],
