@@ -8,10 +8,12 @@ module BeerBot
     include Celluloid
 
     def handle(params)
-      search = Tapfinder::Search.new
-      result = search.find(params)
-      response = BeerBot::Response.new(result, params)
-      respond_with(response)
+      if valid?(params)
+        search = Tapfinder::Search.new
+        result = search.find(params)
+        response = BeerBot::Response.new(result, params)
+        respond_with(response)
+      end
     end
 
     def respond_with(response)
@@ -19,6 +21,10 @@ module BeerBot
     end
 
   private
+
+    def valid?(params)
+      params['token'] == ENV['SLACK_TOKEN']
+    end
 
     def web_hook_url
       "https://hooks.slack.com/services#{ENV['INCOMING_WEBHOOK_PATH']}"
