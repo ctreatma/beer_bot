@@ -1,3 +1,8 @@
+require 'simplecov'
+
+SimpleCov.start
+SimpleCov.minimum_coverage 61.29
+
 require 'minitest/autorun'
 require 'vcr'
 require 'beer_bot'

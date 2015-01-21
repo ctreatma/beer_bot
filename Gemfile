@@ -7,4 +7,7 @@ gem 'rest-client'
 gem 'nokogiri'
 gem 'celluloid'
 
-gem 'vcr', group: :test
+group :test do
+  gem 'vcr'
+  gem 'simplecov'
+end
