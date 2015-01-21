@@ -3,7 +3,7 @@ require 'test_helper'
 describe Tapfinder::Bar do
   before do
     VCR.use_cassette('wrap_shack') do
-      @bar = Tapfinder::Bar.new('/?p=36809')
+      @bar = Tapfinder::Bar.load( [ { 'link' => '/?p=36809' } ] ).first
     end
   end
 

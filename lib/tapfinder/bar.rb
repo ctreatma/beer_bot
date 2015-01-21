@@ -1,11 +1,5 @@
-require 'nokogiri'
-
 module Tapfinder
-  class Bar
-    def initialize(link)
-      response = RestClient.get url_for(link)
-      @doc = Nokogiri::HTML(response.body)
-    end
+  class Bar < Page
 
     def name
       @doc.css('#bar-detail .tap-list .tap-list-name').text
@@ -23,18 +17,6 @@ module Tapfinder
           name: beer.css('h4 a[href^="/beer"]').text
         }
       end
-    end
-
-    def self.load(bars_as_json)
-      bars_as_json.collect do |bar|
-        Bar.new(bar['link'])
-      end
-    end
-
-  private
-
-    def url_for(link)
-      "#{Tapfinder.host}#{link}"
     end
 
   end

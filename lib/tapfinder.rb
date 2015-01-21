@@ -1,3 +1,4 @@
+require 'tapfinder/page'
 require 'tapfinder/bar'
 require 'tapfinder/beer'
 require 'tapfinder/search'

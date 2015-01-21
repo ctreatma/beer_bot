@@ -3,7 +3,7 @@ require 'test_helper'
 describe Tapfinder::Beer do
   before do
     VCR.use_cassette('rueuze') do
-      @beer = Tapfinder::Beer.new('/?p=41300')
+      @beer = Tapfinder::Beer.load( [ { 'link' => '/?p=41300' } ] ).first
     end
   end
 
