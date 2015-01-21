@@ -1,4 +1,5 @@
 require 'tapfinder/bar'
+require 'tapfinder/beer'
 require 'tapfinder/search'
 
 module Tapfinder

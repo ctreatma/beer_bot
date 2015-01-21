@@ -1,7 +1,7 @@
 require 'simplecov'
 
 SimpleCov.start
-SimpleCov.minimum_coverage 61.29
+SimpleCov.minimum_coverage 71.43
 
 require 'minitest/autorun'
 require 'vcr'
