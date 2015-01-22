@@ -1,4 +1,4 @@
-ruby '2.2.0'
+ruby '2.1.5'
 source 'https://rubygems.org'
 
 gem 'rake'
@@ -9,5 +9,6 @@ gem 'celluloid'
 
 group :test do
   gem 'vcr'
+  gem 'webmock'
   gem 'simplecov'
 end

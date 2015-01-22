@@ -1,8 +1,11 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.3.6)
     celluloid (0.16.0)
       timers (~> 4.0.0)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     docile (1.1.5)
     hitimes (1.2.2)
     mime-types (2.4.3)
@@ -18,6 +21,7 @@ GEM
     rest-client (1.7.2)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
+    safe_yaml (1.0.4)
     simplecov (0.9.1)
       docile (~> 1.1.0)
       multi_json (~> 1.0)
@@ -31,6 +35,9 @@ GEM
     timers (4.0.1)
       hitimes
     vcr (2.9.3)
+    webmock (1.20.4)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
 
 PLATFORMS
   ruby
@@ -43,3 +50,4 @@ DEPENDENCIES
   simplecov
   sinatra
   vcr
+  webmock
