@@ -14,7 +14,7 @@ class FormatterTest < Minitest::Unit::TestCase
     ]
 
     formatted_result = @under_test.format(@result, @request_params)
-    assert_equal formatted_result, ["@User: I found 1 bar for 'search text'.",
+    assert_equal formatted_result, ["@User: PhillyTapFinder returned 1 bar for 'search text'.",
       "1. *The Bar* has 2 beers on tap",
       "    * *The Beer* _(Swill, Colorado)_",
       "    * *The Lite Beer* _(Dreck, Missouri)_"].join("\n")
@@ -26,7 +26,7 @@ class FormatterTest < Minitest::Unit::TestCase
     ]
 
     formatted_result = @under_test.format(@result, @request_params)
-    assert_equal formatted_result, ["@User: I found 1 bar for 'search text'.",
+    assert_equal formatted_result, ["@User: PhillyTapFinder returned 1 bar for 'search text'.",
       "1. *The Bar* has 1 beer on tap",
       "    * *The Beer* _(Swill, Colorado)_"].join("\n")
   end
@@ -35,7 +35,7 @@ class FormatterTest < Minitest::Unit::TestCase
     mock_bar 'The Bar', []
 
     formatted_result = @under_test.format(@result, @request_params)
-    assert_equal formatted_result, ["@User: I found 1 bar for 'search text'.",
+    assert_equal formatted_result, ["@User: PhillyTapFinder returned 1 bar for 'search text'.",
       "1. *The Bar* has 0 beers on tap"].join("\n")
   end
 
@@ -44,7 +44,17 @@ class FormatterTest < Minitest::Unit::TestCase
     mock_bar 'The Second Bar', []
 
     formatted_result = @under_test.format(@result, @request_params)
-    assert_equal formatted_result, ["@User: I found 2 bars for 'search text'.",
+    assert_equal formatted_result, ["@User: PhillyTapFinder returned 2 bars for 'search text'.",
+      "1. *The First Bar* has 0 beers on tap",
+      "2. *The Second Bar* has 0 beers on tap"].join("\n")
+  end
+
+  def test_when_no_bars
+    mock_bar 'The First Bar', []
+    mock_bar 'The Second Bar', []
+
+    formatted_result = @under_test.format(@result, @request_params)
+    assert_equal formatted_result, ["@User: PhillyTapFinder returned 2 bars for 'search text'.",
       "1. *The First Bar* has 0 beers on tap",
       "2. *The Second Bar* has 0 beers on tap"].join("\n")
   end
