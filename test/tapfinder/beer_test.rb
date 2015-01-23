@@ -21,7 +21,7 @@ describe Tapfinder::Beer do
 
   it 'should have the correct bar list' do
     @beer.bars.must_equal [
-      { name: 'Pinocchio\'s', address: '131 E. Baltimore Ave., Media, PA', updated_at: 'Last Updated: 01/20/15' }
+      { name: 'Pinocchio\'s', address: '131 E. Baltimore Ave., Media, PA', updated_at: '01/20/15' }
     ]
   end
 

@@ -18,7 +18,7 @@ module Tapfinder
         {
           name: bar.css('h4 a[href^="/bar"]').text,
           address: bar.css('li:nth-child(2) p').text,
-          updated_at: bar.css('.updated').text
+          updated_at: bar.css('.updated').text.sub(/Last Updated:\s+/,'')
         }
       end
     end
