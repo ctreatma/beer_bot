@@ -13,15 +13,8 @@ module BeerBot
         username: 'BeerBot',
         icon_emoji: ':beers:',
         channel: @request_params['channel_id'],
-        text: format_result
+        text: Formatter.format(@result, @request_params)
       }.to_json
-    end
-
-  private
-
-    def format_result
-      formatter = Formatter.new
-      formatter.format(@result, @request_params)
     end
   end
 end
