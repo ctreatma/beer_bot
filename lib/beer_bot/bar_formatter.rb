@@ -16,7 +16,7 @@ module BeerBot
                  "#{string_with_count('beer', beers.size)} " +
                  "on tap as of #{bar.updated_at}"
         beers.each do |beer|
-          lines << "    * *#{beer[:name]}* _(#{beer[:style]}, #{beer[:origin]})_"
+          lines << "    * *#{beer[:name]}* _(#{beer[:style]}; #{beer[:origin]})_"
         end
         lines
       end.join("\n")

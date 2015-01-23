@@ -15,8 +15,8 @@ class BarFormatterTest < Minitest::Unit::TestCase
     formatted_result = @under_test.format(@result)
     assert_equal formatted_result, ["`Bars`",
       "1. *The Bar* has 2 beers on tap as of 1/27/2015",
-      "    * *The Beer* _(Swill, Colorado)_",
-      "    * *The Lite Beer* _(Dreck, Missouri)_"].join("\n")
+      "    * *The Beer* _(Swill; Colorado)_",
+      "    * *The Lite Beer* _(Dreck; Missouri)_"].join("\n")
   end
 
   def test_when_one_bar_with_one_beer
@@ -27,7 +27,7 @@ class BarFormatterTest < Minitest::Unit::TestCase
     formatted_result = @under_test.format(@result)
     assert_equal formatted_result, ["`Bars`",
       "1. *The Bar* has 1 beer on tap as of 1/27/2015",
-      "    * *The Beer* _(Swill, Colorado)_"].join("\n")
+      "    * *The Beer* _(Swill; Colorado)_"].join("\n")
   end
 
   def test_when_one_bar_with_no_beers
@@ -49,9 +49,9 @@ class BarFormatterTest < Minitest::Unit::TestCase
     formatted_result = @under_test.format(@result)
     assert_equal formatted_result, ["`Bars`",
       "1. *The First Bar* has 1 beer on tap as of 1/27/2015",
-      "    * *The Lite Beer* _(Dreck, Missouri)_",
+      "    * *The Lite Beer* _(Dreck; Missouri)_",
       "2. *The Second Bar* has 1 beer on tap as of 1/26/2015",
-      "    * *The Beer* _(Swill, Colorado)_"].join("\n")
+      "    * *The Beer* _(Swill; Colorado)_"].join("\n")
   end
 
 private

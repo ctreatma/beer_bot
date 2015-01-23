@@ -13,7 +13,7 @@ module BeerBot
       beers.each_with_index.inject([]) do |lines, (beer, index)|
         bars = beer.bars
         events = beer.events
-        lines << "#{index + 1}. *#{beer.name}* _(#{beer.style}, " +
+        lines << "#{index + 1}. *#{beer.name}* _(#{beer.style}; " +
                  "#{beer.origin})_ is on tap at " +
                  "#{string_with_count('bar', bars.size)} and " +
                  "#{string_with_count('event', events.size)}"
