@@ -1,6 +1,8 @@
 require 'simplecov'
 
-SimpleCov.start
+SimpleCov.start do
+  add_filter 'vendor'
+end
 SimpleCov.minimum_coverage 73.02
 
 require 'minitest/autorun'
