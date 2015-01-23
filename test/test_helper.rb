@@ -3,7 +3,7 @@ require 'simplecov'
 SimpleCov.start do
   add_filter 'vendor'
 end
-SimpleCov.minimum_coverage 90.61
+SimpleCov.minimum_coverage 91.22
 
 require 'minitest/autorun'
 require 'vcr'

@@ -14,12 +14,17 @@ module Tapfinder
     end
 
     def bars
-      @doc.css('#tap-detail .tap-list .grid-list:nth-of-type(1) .panel').collect do |bar|
-        {
-          name: bar.css('h4 a[href^="/bar"]').text,
-          address: bar.css('li:nth-child(2) p').text,
-          updated_at: bar.css('.updated').text.sub(/Last Updated:\s+/,'')
-        }
+      potential_bar_list = @doc.css('#tap-detail .tap-list .grid-list:nth-of-type(1)')
+      if potential_bar_list.at_css('.events-panel').nil?
+        potential_bar_list.collect do |bar|
+          {
+            name: bar.css('h4 a[href^="/bar"]').text,
+            address: bar.css('li:nth-child(2) p').text,
+            updated_at: bar.css('.updated').text.sub(/Last Updated:\s+/,'')
+          }
+        end
+      else
+        []
       end
     end
 
