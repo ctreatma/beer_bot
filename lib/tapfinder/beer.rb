@@ -16,7 +16,7 @@ module Tapfinder
     def bars
       potential_bar_list = @doc.css('#tap-detail .tap-list .grid-list:nth-of-type(1)')
       if potential_bar_list.at_css('.events-panel').nil?
-        potential_bar_list.collect do |bar|
+        potential_bar_list.css('.panel').collect do |bar|
           {
             name: bar.css('h4 a[href^="/bar"]').text,
             address: bar.css('li:nth-child(2) p').text,
