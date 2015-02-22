@@ -1,5 +1,6 @@
 module Tapfinder
   class Beer < Page
+    self.json_fields = %w(name origin style bars events)
 
     def name
       @doc.css('#tap-detail .tap-list .tap-list-name').text

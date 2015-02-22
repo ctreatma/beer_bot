@@ -1,4 +1,5 @@
 require 'nokogiri'
+require 'json'
 
 module Tapfinder
   class Page
@@ -12,6 +13,19 @@ module Tapfinder
         self.new(page['link'])
       end
     end
+
+    def to_json(*args)
+      hash_for_conversion = self.class.json_fields.inject({}) do |hash, field|
+        hash[field] = self.send(field)
+        hash
+      end
+      hash_for_conversion.to_json
+    end
+
+    class << self
+      attr_accessor :json_fields
+    end
+
 
   private
 

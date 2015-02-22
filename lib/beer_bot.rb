@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/json'
 require 'celluloid/autostart'
 require 'beer_bot/slacker'
 require 'tapfinder'
@@ -9,6 +10,18 @@ module BeerBot
 
     post '/' do
       self.async.handle_slack_request(params)
+    end
+
+    get '/beers' do
+      search(params) do |result|
+        json result[:beers]
+      end
+    end
+
+    get '/bars' do
+      search(params) do |result|
+        json result[:bars]
+      end
     end
 
     private

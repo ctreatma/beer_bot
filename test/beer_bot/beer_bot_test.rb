@@ -18,6 +18,18 @@ class BeerBotTest < Minitest::Unit::TestCase
     post '/', params=request_params
   end
 
+  def test_bars_endpoint
+    get '/bars', params=request_params
+    assert last_response.ok?
+    assert_equal last_response.body, result[:bars].to_json
+  end
+
+  def test_beers_endpoint
+    get '/beers', params=request_params
+    assert last_response.ok?
+    assert_equal last_response.body, result[:beers].to_json
+  end
+
   private
 
   def mock_search
@@ -34,7 +46,7 @@ class BeerBotTest < Minitest::Unit::TestCase
   end
 
   def result
-    { beers: 'The beers', bars: 'The bars' }
+    { beers: ['The beers'], bars: ['The bars'] }
   end
 
   def request_params

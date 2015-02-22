@@ -4,7 +4,7 @@ SimpleCov.start do
   add_filter 'test'
   add_filter 'vendor'
 end
-SimpleCov.minimum_coverage 88.74
+SimpleCov.minimum_coverage 89.88
 
 require 'minitest/autorun'
 require 'mocha/mini_test'
