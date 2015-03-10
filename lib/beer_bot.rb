@@ -14,13 +14,13 @@ module BeerBot
 
     get '/beers' do
       search(params) do |result|
-        json result[:beers]
+        BeerFormatter.format result[:beers]
       end
     end
 
     get '/bars' do
       search(params) do |result|
-        json result[:bars]
+        BarFormatter.format result[:bars]
       end
     end
 
