@@ -39,7 +39,7 @@ module BeerBot
     def handle_slack_request(params)
       if slacker.valid?(params)
         search(params) do |result|
-          slacker.respond_with(result)
+          slacker.respond_with(result, params)
         end
       end
     end
