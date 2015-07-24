@@ -11,10 +11,10 @@ module BeerBot
 
     def self.build_bars_and_events(beers)
       beers.each_with_index.inject([]) do |lines, (beer, index)|
-        bars = beer.bars
-        events = beer.events
-        lines << "#{index + 1}. *#{beer.name}* _(#{beer.style}; " +
-                 "#{beer.origin})_ is on tap at " +
+        bars = beer[:bars]
+        events = beer[:events]
+        lines << "#{index + 1}. *#{beer[:name]}* _(#{beer[:style]}; " +
+                 "#{beer[:origin]})_ is on tap at " +
                  "#{string_with_count('bar', bars.size)} and " +
                  "#{string_with_count('event', events.size)}"
         bars.each do |bar|

@@ -2,29 +2,35 @@ require 'restclient'
 
 module Tapfinder
   class Search
-    def find(params)
-      response = client.post search_terms_for(params)
+    attr_accessor :host
+
+    def initialize
+      @host = 'tapfinder-api.herokuapp.com'
+    end
+
+    def find(params, options)
+      response = RestClient.get "#{host}#{path_for(params, options)}"
       case response.code
       when 200
-        json_response = JSON.parse(response.body)
-        bars = Tapfinder::Bar.load(json_response['bars'])
-        beers = Tapfinder::Beer.load(json_response['beers'])
-        { bars: bars, beers: beers }
+        puts response.body
+        JSON.parse(response.body, symbolize_names: true)
       else
         puts "Failed to search #{client} for #{search_terms_for(params)}"
       end
     end
 
-    def client
-      @client ||= RestClient::Resource.new("#{Tapfinder.host}#{Tapfinder.search_path}")
-    end
+  private
 
-    def search_terms_for(params)
-      {
-        class: 'Search',
-        process: 'searchAll',
-        searchTerm: params[:text]
-      }
+    def path_for(params, options)
+      path = case options[:type]
+      when :bar
+        '/search/bars'
+      when :beer
+        '/search/beers'
+      else
+        '/search'
+      end
+      "#{path}?text=#{params[:text]}"
     end
   end
 end

@@ -2,7 +2,7 @@ require 'sinatra'
 require 'sinatra/json'
 require 'celluloid/autostart'
 require 'beer_bot/slacker'
-require 'tapfinder'
+require 'tapfinder/search'
 
 module BeerBot
   class App < Sinatra::Base
@@ -13,13 +13,13 @@ module BeerBot
     end
 
     get '/beers' do
-      search(params) do |result|
+      search(params, type: :beer) do |result|
         BeerFormatter.format result[:beers]
       end
     end
 
     get '/bars' do
-      search(params) do |result|
+      search(params, type: :bar) do |result|
         BarFormatter.format result[:bars]
       end
     end
@@ -30,15 +30,15 @@ module BeerBot
       @slacker ||= Slacker.new
     end
 
-    def search(params, &block)
+    def search(params, options = {}, &block)
       search = Tapfinder::Search.new
-      result = search.find(params)
+      result = search.find(params, options)
       yield result
     end
 
     def handle_slack_request(params)
       if slacker.valid?(params)
-        search(params) do |result|
+        search(params, type: :all) do |result|
           slacker.respond_with(result, params)
         end
       end
