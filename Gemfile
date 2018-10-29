@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-contrib'
-gem 'rest-client'
+gem 'rest-client', '>= 1.7.3'
 gem 'nokogiri'
 gem 'celluloid'
 

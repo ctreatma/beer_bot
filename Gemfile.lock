@@ -8,14 +8,20 @@ GEM
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     docile (1.1.5)
+    domain_name (0.5.20180417)
+      unf (>= 0.0.5, < 1.0.0)
     hitimes (1.2.2)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
     metaclass (0.0.4)
-    mime-types (2.4.3)
+    mime-types (3.2.2)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2018.0812)
     mini_portile (0.6.2)
     mocha (1.1.0)
       metaclass (~> 0.0.1)
     multi_json (1.10.1)
-    netrc (0.10.2)
+    netrc (0.11.0)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     rack (1.6.0)
@@ -24,9 +30,10 @@ GEM
     rack-test (0.6.3)
       rack (>= 1.0)
     rake (10.4.2)
-    rest-client (1.7.2)
-      mime-types (>= 1.16, < 3.0)
-      netrc (~> 0.7)
+    rest-client (2.0.2)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     safe_yaml (1.0.4)
     simplecov (0.9.1)
       docile (~> 1.1.0)
@@ -47,6 +54,9 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.5)
     vcr (2.9.3)
     webmock (1.20.4)
       addressable (>= 2.3.6)
@@ -60,9 +70,15 @@ DEPENDENCIES
   mocha
   nokogiri
   rake
-  rest-client
+  rest-client (>= 1.7.3)
   simplecov
   sinatra
   sinatra-contrib
   vcr
   webmock
+
+RUBY VERSION
+   ruby 2.1.5p273
+
+BUNDLED WITH
+   1.16.2
