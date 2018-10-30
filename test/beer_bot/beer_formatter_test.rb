@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BeerFormatterTest < Minitest::Unit::TestCase
+class BeerFormatterTest < Minitest::Test
   def setup
     @under_test = BeerBot::BeerFormatter
     @result = []

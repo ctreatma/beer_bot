@@ -1,7 +1,7 @@
 require 'rack/test'
 require 'test_helper'
 
-class BeerBotTest < Minitest::Unit::TestCase
+class BeerBotTest < Minitest::Test
   include Rack::Test::Methods
 
   def app

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FormatterTest < Minitest::Unit::TestCase
+class FormatterTest < Minitest::Test
   def setup
     @under_test = BeerBot::Formatter
     @request_params = { 'user_name' => 'User', 'text' => 'search text' }
