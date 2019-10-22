@@ -16,7 +16,7 @@ module Tapfinder
     end
 
     def client
-      @client ||= RestClient::Resource.new("#{Tapfinder.host}#{Tapfinder.search_path}")
+      @client ||= RestClient::Resource.new("https://#{Tapfinder.host}#{Tapfinder.search_path}")
     end
 
     def search_terms_for(params)
