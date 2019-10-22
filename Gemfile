@@ -1,4 +1,4 @@
-ruby '2.1.5'
+ruby '2.5.7'
 source 'https://rubygems.org'
 
 gem 'rake'
@@ -9,6 +9,7 @@ gem 'nokogiri', '>= 1.8.2'
 gem 'celluloid'
 
 group :test do
+  gem 'minitest'
   gem 'vcr'
   gem 'webmock'
   gem 'simplecov'
