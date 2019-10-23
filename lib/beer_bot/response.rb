@@ -12,8 +12,8 @@ module BeerBot
         link_names: 1,
         username: 'BeerBot',
         icon_emoji: ':beers:',
-        channel: @request_params['channel_id'],
-        text: Formatter.format(@result, @request_params)
+        text: Formatter.format(@result, @request_params),
+        response_type: 'ephemeral'
       }.to_json
     end
   end
