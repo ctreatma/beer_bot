@@ -26,6 +26,7 @@ GEM
       metaclass (~> 0.0.1)
     multi_json (1.13.1)
     netrc (0.11.0)
+    newrelic_rpm (6.7.0.359)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     public_suffix (3.0.3)
@@ -75,6 +76,7 @@ DEPENDENCIES
   celluloid
   minitest
   mocha
+  newrelic_rpm
   nokogiri (>= 1.8.2)
   rake
   rest-client (>= 1.7.3)
